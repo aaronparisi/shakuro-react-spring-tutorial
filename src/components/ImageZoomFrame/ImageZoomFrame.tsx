@@ -12,13 +12,13 @@ const ImageZoomFrame: React.FC<ImageZoomFrameProps> = () => {
 		from: {
 			height: zoomingIn ? "10%" : "30%",
 			width: zoomingIn ? "30%" : "90%",
-			border: zoomingIn ? "5px solid black" : "25px solid black",
+			border: zoomingIn ? "5px solid black" : "30px solid black",
 			backgroundSize: zoomingIn ? "325%" : "100%",
 		},
 		to: {
 			height: zoomingIn ? "30%" : "10%",
 			width: zoomingIn ? "90%" : "30%",
-			border: zoomingIn ? "25px solid black" : "5px solid black",
+			border: zoomingIn ? "30px solid black" : "5px solid black",
 			backgroundSize: zoomingIn ? "100%" : "325%",
 		},
 	});
@@ -27,7 +27,7 @@ const ImageZoomFrame: React.FC<ImageZoomFrameProps> = () => {
 
 	return (
 		<div className="image-zoom-frame-wrapper">
-			<button onClick={() => setZoomingIn(!zoomingIn)}>Toggle!</button>
+			{/* <button onClick={() => setZoomingIn(!zoomingIn)}>Toggle!</button> */}
 			<animated.div
 				className="image-zoom-frame"
 				style={{
@@ -36,6 +36,8 @@ const ImageZoomFrame: React.FC<ImageZoomFrameProps> = () => {
 					backgroundPosition: "50% 50%",
 					...frameProps,
 				}}
+				onMouseEnter={() => setZoomingIn(true)}
+				onMouseLeave={() => setZoomingIn(false)}
 			>
 				{/* <animated.div className="framed-image" style={imageProps}>
 					<img
